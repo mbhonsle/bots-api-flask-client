@@ -4,7 +4,7 @@ This is a simple Python Flask server application to interact with the Einstein B
 
 ## Usage
 
-1. update the ./config/config.cfg
+1. update the ./config/server_config.cfg
    - add an appropriate value for ORG_ID
    - add an appropriate value for BOTS_SERVER_URL
    - add an appropriate value for JWT (this will be exchanged with login server for the OAuth access token)

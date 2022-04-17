@@ -1,7 +1,3 @@
-'''
-exchange JWT for an OAuth access token
-'''
-from nbformat import ValidationError
 import requests
 import json
 from flask import current_app as app
@@ -19,7 +15,7 @@ def validate_response(response):
 
     # check the scope
     if CHATBOT_SCOPE not in data["scope"]:
-        raise ValidationError("Invalid scopes")
+        raise Exception("Invalid scopes")
 
 def get_oauth_access_token():
     config = app.config

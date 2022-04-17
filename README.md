@@ -21,3 +21,24 @@ curl --location --request POST 'http://127.0.0.1:5000/start/<your-bot-id>' \
     "externalSessionKey": "<UUID>"
 }'
 ```
+Note down the `sessionId` from the response
+
+3. to continue chatting with the bot on an existing `sessionId`:
+```
+curl --location --request POST 'http://127.0.0.1:5000/chat/<sessionId from the start request's response>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "message": {
+        "type": "text",
+        "text": "<any text>",
+        "sequenceId":1
+    }
+}'
+```
+
+4. to end a chat session:
+```
+curl --location --request DELETE 'http://127.0.0.1:5000/end/<sessionId from the start request's response>' \
+--header 'Content-Type: application/json' \
+--header 'X-Session-End-Reason: UserRequest'
+```
